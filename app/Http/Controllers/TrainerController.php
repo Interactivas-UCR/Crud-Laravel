@@ -9,10 +9,31 @@ use Illuminate\Support\Facades\File;
 
 use TRAINERPOKEMON\Traits\TransformTextToUrl;
 
+use Illuminate\Support\Facades\Auth;
+
 class TrainerController extends Controller
 {
 
     use TransformTextToUrl;
+
+    protected $user;
+
+    public function __construct()
+    {
+        $this->middleware(function($request, $next){
+            $this->user = Auth::user();
+
+            // dd( Auth::user() );
+            $this->user->authorizeRoles(['admin']);
+
+            return $next($request);
+        });        
+
+        // dd($this->user);
+        // die;
+
+        // $this->user->authorizeRoles(['admin']);
+    }
 
     /**
      * Display a listing of the resource.

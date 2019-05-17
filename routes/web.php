@@ -13,7 +13,7 @@
 
 Route::get('/', "TrainerController@index")->name('index');
 
-Route::resource('/trainers', 'TrainerController');
+Route::resource('/trainers', 'TrainerController')->middleware('auth');
 Route::resource('/pokemons', 'PokemonController')->except(['create']);
 
 Route::get('pokemons/create/{trainer}', 'PokemonController@create')->name('pokemons.create');

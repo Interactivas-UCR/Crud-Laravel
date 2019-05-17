@@ -2,6 +2,29 @@
 
 @section('content')
 
+
+
+
+    @auth
+         {{-- {{ Auth::user()->roles }} --}}
+         
+         @foreach (Auth::user()->roles as $role)
+             {{ $role->name }}
+         @endforeach
+    @endauth
+
+    @guest
+        Invitado   
+    @endguest
+
+
+
+
+
+
+
+
+
     <div class="container">
         <h1>@lang('Trainers') </h1>        
         <a class="btn btn-primary" href="{{ route('trainers.create') }}">Add Trainer</a>
