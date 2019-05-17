@@ -9,4 +9,5 @@ DB_PASSWORD=
 
 Ejecutar en la terminal: 
 
-composer require && npm i
+```bash 
+    composer require && npm i```
