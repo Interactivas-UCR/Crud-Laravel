@@ -1,0 +1,30 @@
+//Fonts
+$font-fancy: 'Lato', sans-serif;
+$font-base: 'Helvetica';
+
+// Colors
+$black: #000;
+$red: red;
+$white: #f8f8f8;
+
+$blue: #007bff !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #28a745 !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
+
+$theme-colors: (
+    'primary': $indigo,
+    'secondary': $blue,
+    'success': $teal,
+    'info': $yellow,
+    'warning': $orange,
+    'danger': $red,
+    'light': $black,
+    'dark': $white
+);
