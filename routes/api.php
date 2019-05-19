@@ -16,3 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// TODO: Crear los resources para las respuestas
+//      php artisan make:resource Trainer
+//      php artisan make:resource TrainerCollection
+//      php artisan make:resource Pokemon
+//      php artisan make:resource PokemonCollection
