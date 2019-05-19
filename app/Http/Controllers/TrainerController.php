@@ -20,14 +20,16 @@ class TrainerController extends Controller
 
     public function __construct()
     {
-        $this->middleware(function($request, $next){
-            $this->user = Auth::user();
+        // $this->middleware(function ($request, $next) {
+        //     $this->user = Auth::user();
 
-            // dd( Auth::user() );
-            $this->user->authorizeRoles(['admin']);
+        //     // dd( Auth::user() );
+        //     // $this->user->authorizeRoles(['user']);
 
-            return $next($request);
-        });        
+        //     return $next($request);
+        // });
+
+        $this->middleware('role:admin,/', ['except' => ['index']]);
 
         // dd($this->user);
         // die;
@@ -40,10 +42,14 @@ class TrainerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        $user = $request->user();
+        // $user->isAdmin();
+
         $trainers = Trainer::all();
-        return view('trainers.trainers', ['trainers' => $trainers]);
+        return view('trainers.trainers', ['trainers' => $trainers, 'user' => $user]);
     }
 
     /**

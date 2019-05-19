@@ -16,6 +16,7 @@ class PokemonController extends Controller
 
     // Los traits se cargan de esta forma
     use TransformTextToUrl;
+
     /**
      * Display a listing of the resource.
      *

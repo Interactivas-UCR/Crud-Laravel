@@ -93,4 +93,8 @@ class User extends Authenticatable
 
         abort(401, 'No tiene permiso compa');
     }
+
+    public function isAdmin(){
+        return $this->hasRole('admin');
+    }
 }

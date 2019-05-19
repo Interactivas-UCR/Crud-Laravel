@@ -8,8 +8,10 @@
     @auth
          {{-- {{ Auth::user()->roles }} --}}
          
+        Name: {{ $user->name }}
+
          @foreach (Auth::user()->roles as $role)
-             {{ $role->name }}
+             {{-- {{ $role->name }} --}}
          @endforeach
     @endauth
 
