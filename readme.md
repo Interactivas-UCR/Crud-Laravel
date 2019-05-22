@@ -19,5 +19,4 @@ Se debe de ejecutar:
     php artisan key:generate
 ```
 
-Comandos Git Básicos
-[Comandos Github](https://docs.google.com/document/d/1pTiwCeAn3glEYQI3lv8q9wnxyMmD5APw8ceDwEyXx1c/edit?usp=sharing)
+[Comandos Git Básicos](https://docs.google.com/document/d/1pTiwCeAn3glEYQI3lv8q9wnxyMmD5APw8ceDwEyXx1c/edit?usp=sharing)
