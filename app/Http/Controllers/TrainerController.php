@@ -16,23 +16,9 @@ class TrainerController extends Controller
 
     use TransformTextToUrl;
 
-    protected $user;
-
     public function __construct()
     {
-        $this->middleware(function($request, $next){
-            $this->user = Auth::user();
-
-            // dd( Auth::user() );
-            $this->user->authorizeRoles(['admin']);
-
-            return $next($request);
-        });        
-
-        // dd($this->user);
-        // die;
-
-        // $this->user->authorizeRoles(['admin']);
+        $this->middleware('check.role:admin,/trainers', ['except' => ['index']]);
     }
 
     /**
@@ -42,6 +28,7 @@ class TrainerController extends Controller
      */
     public function index()
     {
+
         $trainers = Trainer::all();
         return view('trainers.trainers', ['trainers' => $trainers]);
     }
@@ -51,8 +38,13 @@ class TrainerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        // $user = $request->user();
+
+        // $user->authorizeRoles('admin');
+        // $user->authorizeRoles(['admin']);
+
         return view('trainers.create');
     }
 

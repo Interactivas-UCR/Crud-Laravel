@@ -86,11 +86,17 @@ class User extends Authenticatable
      * @param $roles los roles que se van a permitir
      */
 
-    public function authorizeRoles($roles){
-        if($this->hasAnyRoles($roles)){
+    public function authorizeRoles($roles)
+    {
+        if ($this->hasAnyRoles($roles)) {
             return true;
         }
 
         abort(401, 'No tiene permiso compa');
+    }
+
+    public function isAdmin()
+    {
+        return $this->hasRole('admin');
     }
 }

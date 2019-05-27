@@ -19,4 +19,12 @@ const stylesSCSS = () => {
         .pipe(gulp.dest('./public/css'));
 };
 
+gulp.task('watch', () => {
+    gulp.watch('./resources/scss/**/*.scss', stylesSCSS);
+});
+
+gulp.task('stylesSCSS', stylesSCSS);
+
+gulp.task('default', gulp.parallel('watch', 'stylesSCSS'));
+
 exports.stylesSCSS = stylesSCSS;
