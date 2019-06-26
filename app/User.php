@@ -5,10 +5,11 @@ namespace TRAINERPOKEMON;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -86,15 +87,17 @@ class User extends Authenticatable
      * @param $roles los roles que se van a permitir
      */
 
-    public function authorizeRoles($roles){
-        if($this->hasAnyRoles($roles)){
+    public function authorizeRoles($roles)
+    {
+        if ($this->hasAnyRoles($roles)) {
             return true;
         }
 
         abort(401, 'No tiene permiso compa');
     }
 
-    public function isAdmin(){
+    public function isAdmin()
+    {
         return $this->hasRole('admin');
     }
 }
